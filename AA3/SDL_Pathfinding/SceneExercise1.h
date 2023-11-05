@@ -24,6 +24,7 @@ public:
 private:
 	std::vector<Agent*> agents;
 	Vector2D coinPosition;
+	Vector2D initialAgent0Pos;
 
 	Grid *maze;
 	bool draw_grid;

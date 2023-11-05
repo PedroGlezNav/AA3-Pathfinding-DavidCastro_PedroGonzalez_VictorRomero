@@ -22,6 +22,7 @@ SceneExercise1::SceneExercise1()
 	while (!maze->isValidCell(rand_cell))
 		rand_cell = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
 	agents[0]->setPosition(maze->cell2pix(rand_cell));
+	initialAgent0Pos = maze->cell2pix(rand_cell);
 
 	// set the coin in a random cell (but at least 3 cells far from the agent)
 	coinPosition = Vector2D(-1,-1);
@@ -50,21 +51,47 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 	/* Keyboard & Mouse events */
 	switch (event->type) {
 	case SDL_KEYDOWN:
-		if (event->key.keysym.scancode == SDL_SCANCODE_SPACE)
+		if (event->key.keysym.scancode == SDL_SCANCODE_SPACE) {
 			draw_grid = !draw_grid;
+		}
 
-		if (event->key.keysym.scancode == SDL_SCANCODE_B) {
-			std::vector<Vector2D> pathPoints= nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
+		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
+			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
 			for each (Vector2D point in pathPoints)
 			{
 				agents[0]->addPathPoint(maze->cell2pix(point));
 			}
+			printf_s("Number of nodes in frontier: %d\n", nav_Algorithm->GetNodesInFrontier());
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_R) {
+			agents[0]->setPosition(initialAgent0Pos);
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_B) {
+			nav_Algorithm = new BFS_Alg();
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_D) {
+
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_G) {
+
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_A) {
+
 		}
 		break;
 	case SDL_MOUSEBUTTONDOWN:
-		coinPosition = Vector2D(-1, -1);
-		while ((!maze->isValidCell(coinPosition)) || (Vector2D::Distance(coinPosition, maze->pix2cell(agents[0]->getPosition())) < 3))
-			coinPosition = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
+		if (event->button.button == SDL_BUTTON_LEFT && agents[0]->getPathSize() == 0)
+		{
+			Vector2D cell = maze->pix2cell(Vector2D((float)(event->button.x), (float)(event->button.y)));
+			if (maze->isValidCell(cell)) {
+				coinPosition = cell;
+			}
+		}
 		break;
 	default:
 		break;

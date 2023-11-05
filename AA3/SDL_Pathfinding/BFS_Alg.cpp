@@ -2,32 +2,42 @@
 
 std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph)
 {
+	nodesInFrontier = 0;
+
 	std::vector<Vector2D> frontier;
 	frontier.push_back(agentPos);
 	std::vector<Connection*> cameFrom;
 	cameFrom.push_back(new Connection(0, NULL, agentPos));
 
-	for each (Vector2D nodeInFrontier in frontier)
+	while (!frontier.empty())
 	{
-		if (nodeInFrontier == goalPos) {
+		if (frontier[0] == goalPos) {
 			return CalculatePath(agentPos, goalPos, cameFrom);
 		}
 
-		std::vector<Connection*> connections= graph->GetConnectionsFromNode(nodeInFrontier);
+		std::vector<Connection*> connections= graph->GetConnectionsFromNode(frontier[0]);
+		frontier.erase(frontier.begin());
 		Vector2D neighbour;
 
-		for each (Connection* connection1 in connections)
+		for each (Connection* frontierConnection in connections)
 		{
-			neighbour = connection1->GetToNode();
+			neighbour = frontierConnection->GetToNode();
 
-			for each (Connection * connection2 in cameFrom) 
+			bool hasFoundIt = false;
+
+			for (int iter = 0; iter < cameFrom.size() && !hasFoundIt; iter++)
 			{
-				if (neighbour != connection2->GetToNode()) 
+				if (neighbour.x == cameFrom[iter]->GetToNode().x && neighbour.y == cameFrom[iter]->GetToNode().y)
 				{
-					cameFrom.push_back(connection1);
-					frontier.push_back(neighbour);
-					printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
+					hasFoundIt = true;
 				}
+			}
+
+			if (!hasFoundIt) {
+				cameFrom.push_back(frontierConnection);
+				frontier.push_back(neighbour);
+				printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
+				nodesInFrontier++;
 			}
 		}
 	}

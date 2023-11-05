@@ -92,6 +92,9 @@
     <ClInclude Include="SceneExercise1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Djikstra_Alg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\spritesheet.png">

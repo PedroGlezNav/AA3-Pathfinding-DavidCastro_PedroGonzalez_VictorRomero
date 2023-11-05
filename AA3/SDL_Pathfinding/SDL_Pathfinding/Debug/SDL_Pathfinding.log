@@ -20,6 +20,7 @@ C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRo
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(43,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(28,28): warning C4018: '<': signed/unsigned mismatch
   SceneExercise1.cpp
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(11,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(12,22): warning C4018: '<': signed/unsigned mismatch
@@ -65,5 +66,5 @@ C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRo
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(43,27): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(34): warning C4715: 'BFS_Alg::CalculatePathNodes': not all control paths return a value
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(44): warning C4715: 'BFS_Alg::CalculatePathNodes': not all control paths return a value
   SDL_Pathfinding.vcxproj -> C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\bin\SDL_Pathfinding.exe
