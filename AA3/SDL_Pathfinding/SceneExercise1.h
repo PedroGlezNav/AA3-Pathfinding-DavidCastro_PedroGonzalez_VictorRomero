@@ -11,6 +11,7 @@
 #include "Grid.h"
 #include "Graph.h"
 #include "BFS_Alg.h"
+#include "Djikstra_Alg.h"
 
 class SceneExercise1 :
 	public Scene

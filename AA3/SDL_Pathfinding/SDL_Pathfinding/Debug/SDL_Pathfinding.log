@@ -20,7 +20,72 @@ C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRo
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(43,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(28,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(29,28): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\utility(256,38): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(11): message : see reference to function template instantiation 'std::pair<Vector2D,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept(false)' being compiled
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(11): message : see reference to function template instantiation 'std::pair<Vector2D,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept(false)' being compiled
+  Djikstra_Alg.cpp
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(11,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(12,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(16,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(16,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(16,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(16,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(20,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(21,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(21,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(21,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(21,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(25,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(26,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(26,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(26,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(26,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(43,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(35,28): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\utility(256,38): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(14): message : see reference to function template instantiation 'std::pair<Vector2D,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept(false)' being compiled
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(14): message : see reference to function template instantiation 'std::pair<Vector2D,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept(false)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\utility(190,16): warning C4244: 'initializing': conversion from 'float' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(50): message : see reference to function template instantiation 'std::pair<int,Vector2D>::pair<float&,Vector2D,0>(_Other1,_Other2 &&) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=Vector2D
+          ]
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(50): message : see reference to function template instantiation 'std::pair<int,Vector2D>::pair<float&,Vector2D,0>(_Other1,_Other2 &&) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=Vector2D
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\utility(256,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+          and
+          [
+              _Ty1=float
+          ]
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(50): message : see reference to function template instantiation 'std::pair<float,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept' being compiled
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(50): message : see reference to function template instantiation 'std::pair<float,Vector2D>::pair<int,Vector2D,0>(std::pair<int,Vector2D> &&) noexcept' being compiled
   SceneExercise1.cpp
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(11,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(12,22): warning C4018: '<': signed/unsigned mismatch
@@ -66,5 +131,6 @@ C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRo
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(31,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(43,27): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(44): warning C4715: 'BFS_Alg::CalculatePathNodes': not all control paths return a value
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Djikstra_Alg.cpp(66): warning C4715: 'Djikstra_Alg::CalculatePathNodes': not all control paths return a value
+C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\BFS_Alg.cpp(45): warning C4715: 'BFS_Alg::CalculatePathNodes': not all control paths return a value
   SDL_Pathfinding.vcxproj -> C:\Users\usuario\source\repos\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\bin\SDL_Pathfinding.exe

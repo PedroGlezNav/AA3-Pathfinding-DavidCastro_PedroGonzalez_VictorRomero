@@ -61,7 +61,7 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 			{
 				agents[0]->addPathPoint(maze->cell2pix(point));
 			}
-			printf_s("Number of nodes in frontier: %d\n", nav_Algorithm->GetNodesInFrontier());
+			printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_R) {
@@ -73,7 +73,7 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_D) {
-
+			nav_Algorithm = new Djikstra_Alg();
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_G) {

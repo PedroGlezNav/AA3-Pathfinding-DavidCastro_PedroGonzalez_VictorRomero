@@ -4,19 +4,20 @@ std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D go
 {
 	nodesInFrontier = 0;
 
-	std::vector<Vector2D> frontier;
-	frontier.push_back(agentPos);
-	std::vector<Connection*> cameFrom;
-	cameFrom.push_back(new Connection(0, NULL, agentPos));
+	std::queue<Vector2D> frontier;
+	frontier.push(agentPos);
+
+	std::vector<std::pair<Vector2D, Vector2D>> cameFrom;
+	cameFrom.push_back(std::make_pair(NULL, agentPos));
 
 	while (!frontier.empty())
 	{
-		if (frontier[0] == goalPos) {
+		if (frontier.front() == goalPos) {
 			return CalculatePath(agentPos, goalPos, cameFrom);
 		}
 
-		std::vector<Connection*> connections= graph->GetConnectionsFromNode(frontier[0]);
-		frontier.erase(frontier.begin());
+		std::vector<Connection*> connections= graph->GetConnectionsFromNode(frontier.front());
+		frontier.pop();
 		Vector2D neighbour;
 
 		for each (Connection* frontierConnection in connections)
@@ -27,38 +28,18 @@ std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D go
 
 			for (int iter = 0; iter < cameFrom.size() && !hasFoundIt; iter++)
 			{
-				if (neighbour.x == cameFrom[iter]->GetToNode().x && neighbour.y == cameFrom[iter]->GetToNode().y)
+				if (neighbour.x == cameFrom[iter].second.x && neighbour.y == cameFrom[iter].second.y)
 				{
 					hasFoundIt = true;
 				}
 			}
 
 			if (!hasFoundIt) {
-				cameFrom.push_back(frontierConnection);
-				frontier.push_back(neighbour);
+				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode(), frontierConnection->GetToNode()));
+				frontier.push(neighbour);
 				printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
 				nodesInFrontier++;
 			}
 		}
 	}
-}
-
-std::vector<Vector2D> BFS_Alg::CalculatePath(Vector2D agentPos, Vector2D goalPos, std::vector<Connection*> cameFrom)
-{
-	Vector2D current = goalPos;
-	std::vector<Vector2D> path;
-	path.push_back(current);
-
-	while (current != agentPos) {
-		for each (Connection* connection in cameFrom)
-		{
-			if (connection->GetToNode() == current) {
-				current = connection->GetFromNode();
-				path.push_back(current);
-			}
-		}
-	}
-
-	std::reverse(path.begin(), path.end());
-	return path;
 }

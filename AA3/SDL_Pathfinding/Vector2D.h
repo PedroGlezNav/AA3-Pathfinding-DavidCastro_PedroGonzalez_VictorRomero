@@ -33,7 +33,11 @@ struct Vector2D
 	{
 		return x * x + y * y;
 	}
-	
+
+	inline bool operator<(const Vector2D& other) const {
+		return (x < other.x) || (x == other.x && y < other.y);
+	}
+
 	inline Vector2D operator+(const Vector2D& v)
 	{
 		return Vector2D(x + v.x, y + v.y);
