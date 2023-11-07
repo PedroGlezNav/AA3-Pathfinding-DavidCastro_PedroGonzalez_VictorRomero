@@ -70,21 +70,29 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_B) {
+			agents[0]->setPosition(initialAgent0Pos);
+			agents[0]->clearPath();
 			nav_Algorithm = new BFS_Alg();
 			printf_s("Breadth-First Search--------------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_D) {
+			agents[0]->setPosition(initialAgent0Pos);
+			agents[0]->clearPath();
 			nav_Algorithm = new Djikstra_Alg();
 			printf_s("Djikstra--------------------------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_G) {
+			agents[0]->setPosition(initialAgent0Pos);
+			agents[0]->clearPath();
 			nav_Algorithm = new Greedy_Alg();
 			printf_s("Greedy Best-First Search----------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_A) {
+			agents[0]->setPosition(initialAgent0Pos);
+			agents[0]->clearPath();
 			nav_Algorithm = new AStar_Alg();
 			printf_s("A*--------------------------------------------------------\n\n");
 		}
