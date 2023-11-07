@@ -5,7 +5,7 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 	nodesInFrontier = 0;
 
 	std::priority_queue<std::pair<float, Vector2D>, std::vector<std::pair<float, Vector2D>>, std::greater<std::pair<float, Vector2D>>> frontier;
-	frontier.push(std::make_pair(55.f, agentPos));
+	frontier.push(std::make_pair(0.f, agentPos));
 
 	std::vector<std::pair<Vector2D, float>> costSoFar;
 	costSoFar.push_back(std::make_pair(agentPos, 0.f));
@@ -26,7 +26,7 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 		for each (Connection* frontierConnection in connections)
 		{
 
-			neighbour = frontierConnection->GetToNode();
+			neighbour = frontierConnection->GetToNode()->GetPosition();
 
 			bool hasFoundIt = false; 
 			float newCost = 0;
@@ -45,9 +45,9 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 
 			if (!hasFoundIt) 
 			{
-				costSoFar.push_back(std::make_pair(frontierConnection->GetToNode(), newCost));
-				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode(), frontierConnection->GetToNode()));
-				frontier.push(std::pair<int, Vector2D>(newCost, frontierConnection->GetToNode()));
+				costSoFar.push_back(std::make_pair(frontierConnection->GetToNode()->GetPosition(), newCost));
+				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode()->GetPosition(), frontierConnection->GetToNode()->GetPosition()));
+				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
 
 				printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
 				nodesInFrontier++;
@@ -55,10 +55,10 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 			else if (newCost < costSoFar[foundIter].second) 
 			{
 				costSoFar[foundIter].second = newCost;
-				cameFrom[foundIter].first = frontierConnection->GetFromNode();
-				frontier.push(std::pair<int, Vector2D>(newCost, frontierConnection->GetToNode()));
+				cameFrom[foundIter].first = frontierConnection->GetFromNode()->GetPosition();
+				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
+				printf_s("New Frontier Point: (%f,%f) /// New Frontier Cost: (%f)\n", neighbour.x, neighbour.y, newCost);
 				nodesInFrontier++;
 			}
 		}

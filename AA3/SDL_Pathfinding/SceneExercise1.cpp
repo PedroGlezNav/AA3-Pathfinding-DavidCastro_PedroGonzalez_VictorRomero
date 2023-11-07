@@ -31,6 +31,7 @@ SceneExercise1::SceneExercise1()
 
 	graph = new Graph(maze->GetTerrain());
 	nav_Algorithm = new BFS_Alg();
+	printf_s("Breadth-First Search--------------------------------------\n\n");
 }
 
 SceneExercise1::~SceneExercise1()
@@ -64,20 +65,23 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 			printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 		}
 
-		if (event->key.keysym.scancode == SDL_SCANCODE_R) {
+		if (event->key.keysym.scancode == SDL_SCANCODE_R && agents[0]->getPathSize() == 0) {
 			agents[0]->setPosition(initialAgent0Pos);
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_B) {
 			nav_Algorithm = new BFS_Alg();
+			printf_s("Breadth-First Search--------------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_D) {
 			nav_Algorithm = new Djikstra_Alg();
+			printf_s("Djikstra--------------------------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_G) {
-
+			nav_Algorithm = new Greedy_Alg();
+			printf_s("Greedy Best-First Search----------------------------------\n\n");
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_A) {

@@ -19,6 +19,8 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
+	srand(time(0));
+
 	bool quit = false;
 	SDL_Event event;
 	

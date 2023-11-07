@@ -10,8 +10,10 @@
 #include "PathFollowing.h"
 #include "Grid.h"
 #include "Graph.h"
+
 #include "BFS_Alg.h"
 #include "Djikstra_Alg.h"
+#include "Greedy_Alg.h"
 
 class SceneExercise1 :
 	public Scene

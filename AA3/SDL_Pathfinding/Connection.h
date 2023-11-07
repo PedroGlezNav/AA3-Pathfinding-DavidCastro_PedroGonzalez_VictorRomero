@@ -1,28 +1,25 @@
 #pragma once
-#include "Vector2D.h"
-#include <vector>
-#include <queue>
-#include <map>
+#include "Node.h"
 
 class Connection
 {
 private:
 	float cost;
-	Vector2D fromNode;
-	Vector2D toNode;
+	Node* fromNode;
+	Node* toNode;
 
 public:
-	Connection(float _cost, Vector2D _fromNode, Vector2D _toNode) : cost(_cost), fromNode(_fromNode), toNode(_toNode) {}
+	Connection(float _cost, Node* _fromNode, Node* _toNode) : cost(_cost), fromNode(_fromNode), toNode(_toNode) {}
 
 	float GetCost() {
 		return cost;
 	}
 
-	Vector2D GetFromNode() {
+	Node* GetFromNode() {
 		return fromNode;
 	}
 
-	Vector2D GetToNode() {
+	Node* GetToNode() {
 		return toNode;
 	}
 };
