@@ -85,7 +85,8 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_A) {
-
+			nav_Algorithm = new AStar_Alg();
+			printf_s("A*--------------------------------------------------------\n\n");
 		}
 		break;
 	case SDL_MOUSEBUTTONDOWN:

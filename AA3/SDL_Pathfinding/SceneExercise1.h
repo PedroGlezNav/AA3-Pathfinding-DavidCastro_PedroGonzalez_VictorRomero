@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <time.h>
+
 #include "Scene.h"
 #include "Agent.h"
 #include "Seek.h"
@@ -14,6 +15,7 @@
 #include "BFS_Alg.h"
 #include "Djikstra_Alg.h"
 #include "Greedy_Alg.h"
+#include "AStar_Alg.h"
 
 class SceneExercise1 :
 	public Scene

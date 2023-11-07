@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="AStar_Alg.cpp" />
     <ClCompile Include="BFS_Alg.cpp" />
     <ClCompile Include="Djikstra_Alg.cpp" />
     <ClCompile Include="Greedy_Alg.cpp" />
@@ -146,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="AStar_Alg.h" />
     <ClInclude Include="BFS_Alg.h" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="Djikstra_Alg.h" />
