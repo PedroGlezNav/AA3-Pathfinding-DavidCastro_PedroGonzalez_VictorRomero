@@ -56,7 +56,7 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 			draw_grid = !draw_grid;
 		}
 
-		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
+		if (event->key.keysym.scancode == SDL_SCANCODE_T) {
 			for (int iter = 0; iter < 4; iter++) {
 
 				switch (iter)
@@ -74,14 +74,17 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 					nav_Algorithm = new AStar_Alg();
 					break;
 				}
-
-				std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
-				/*for each (Vector2D point in pathPoints)
-				{
-					agents[0]->addPathPoint(maze->cell2pix(point));
-				}*/
 				printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 			}
+		}
+
+		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
+			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
+			for each (Vector2D point in pathPoints)
+			{
+				agents[0]->addPathPoint(maze->cell2pix(point));
+			}
+			printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_R && agents[0]->getPathSize() == 0) {
