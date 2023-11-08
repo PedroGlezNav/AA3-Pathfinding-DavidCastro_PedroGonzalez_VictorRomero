@@ -1,4 +1,4 @@
-﻿  SceneExercise1.cpp
+﻿  SceneExercise2.cpp
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(11,21): warning C4018: '<': signed/unsigned mismatch
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(12,22): warning C4018: '<': signed/unsigned mismatch
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(15,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data

@@ -5,6 +5,7 @@
 #include "SDL_SimpleApp.h"
 #include "ScenePathFindingMouse.h"
 #include "SceneExercise1.h"
+#include "SceneExercise2.h"
 
 using namespace std;
 
@@ -47,11 +48,14 @@ int main(int argc, char ** argv)
 			if (event.key.keysym.scancode == SDL_SCANCODE_1)
 			{
 				delete(curr_scene);
-				curr_scene = new ScenePathFindingMouse;
+				curr_scene = new SceneExercise1;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_2)
 			{
+				delete(curr_scene);
+				curr_scene = new SceneExercise2;
+				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_3)
 			{
