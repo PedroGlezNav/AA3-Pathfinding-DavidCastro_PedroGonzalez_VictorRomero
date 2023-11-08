@@ -17,25 +17,25 @@ public:
 					//Left
 					if (i - 1 > 0 && grid_terrain[i - 1][j] == 1) {
 						Node* newToNodeLeft = new Node(0, Vector2D(j, i - 1));
-						Connection *newConnection = new Connection(randomFloat(0, 20), newFromNode, newToNodeLeft);
+						Connection *newConnection = new Connection(randomFloat(0, 10), newFromNode, newToNodeLeft);
 						connections.push_back(newConnection);
 					}
 					//Right
 					if (i + 1 < grid_terrain.size() && grid_terrain[i + 1][j] == 1) {
 						Node* newToNodeRight = new Node(0, Vector2D(j, i + 1));
-						Connection* newConnection = new Connection(randomFloat(0, 20), newFromNode, newToNodeRight);
+						Connection* newConnection = new Connection(randomFloat(0, 10), newFromNode, newToNodeRight);
 						connections.push_back(newConnection);
 					}
 					//Down
 					if (j + 1 < grid_terrain[i].size() && grid_terrain[i][j + 1] == 1) {
 						Node* newToNodeDown = new Node(0, Vector2D(j + 1, i));
-						Connection* newConnection = new Connection(randomFloat(0, 20), newFromNode, newToNodeDown);
+						Connection* newConnection = new Connection(randomFloat(0, 10), newFromNode, newToNodeDown);
 						connections.push_back(newConnection);
 					}
 					//Up
 					if (j - 1 > 0 && grid_terrain[i][j - 1] == 1) {
 						Node* newToNodeUp = new Node(0, Vector2D(j - 1, i));
-						Connection* newConnection = new Connection(randomFloat(0, 20), newFromNode, newToNodeUp);
+						Connection* newConnection = new Connection(randomFloat(0, 10), newFromNode, newToNodeUp);
 						connections.push_back(newConnection);
 					}
 				}

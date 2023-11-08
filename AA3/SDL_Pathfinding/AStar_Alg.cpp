@@ -43,24 +43,24 @@ std::vector<Vector2D> AStar_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D 
 					foundIter = iter;
 				}
 			}
-			newCost += frontierConnection->GetCost() + frontierConnection->GetToNode()->GetHeuristic();
+			newCost += frontierConnection->GetCost();
 
 			if (!hasFoundIt) 
 			{
 				costSoFar.push_back(std::make_pair(frontierConnection->GetToNode()->GetPosition(), newCost));
 				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode()->GetPosition(), frontierConnection->GetToNode()->GetPosition()));
-				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
+				frontier.push(std::pair<float, Vector2D>(newCost + frontierConnection->GetToNode()->GetHeuristic(), frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic Function: (%f)\n", neighbour.x, neighbour.y, newCost);
+				//printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic Function: (%f)\n", neighbour.x, neighbour.y, newCost);
 				nodesInFrontier++;
 			}
 			else if (newCost < costSoFar[foundIter].second) 
 			{
 				costSoFar[foundIter].second = newCost;
 				cameFrom[foundIter].first = frontierConnection->GetFromNode()->GetPosition();
-				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
+				frontier.push(std::pair<float, Vector2D>(newCost + frontierConnection->GetToNode()->GetHeuristic(), frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic Function: (%f)\n", neighbour.x, neighbour.y, newCost);
+				//printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic Function: (%f)\n", neighbour.x, neighbour.y, newCost);
 				nodesInFrontier++;
 			}
 		}

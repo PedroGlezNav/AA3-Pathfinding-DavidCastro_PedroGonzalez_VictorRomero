@@ -49,7 +49,7 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode()->GetPosition(), frontierConnection->GetToNode()->GetPosition()));
 				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f) /// New Frontier Cost: (%f)\n", neighbour.x, neighbour.y, newCost);
+				//printf_s("New Frontier Point: (%f,%f) /// New Frontier Cost: (%f)\n", neighbour.x, neighbour.y, newCost);
 				nodesInFrontier++;
 			}
 			else if (newCost < costSoFar[foundIter].second) 
@@ -58,7 +58,7 @@ std::vector<Vector2D> Djikstra_Alg::CalculatePathNodes(Vector2D agentPos, Vector
 				cameFrom[foundIter].first = frontierConnection->GetFromNode()->GetPosition();
 				frontier.push(std::pair<float, Vector2D>(newCost, frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f) /// New Frontier Cost: (%f)\n", neighbour.x, neighbour.y, newCost);
+				//printf_s("New Frontier Point: (%f,%f) /// New Frontier Cost: (%f)\n", neighbour.x, neighbour.y, newCost);
 				nodesInFrontier++;
 			}
 		}

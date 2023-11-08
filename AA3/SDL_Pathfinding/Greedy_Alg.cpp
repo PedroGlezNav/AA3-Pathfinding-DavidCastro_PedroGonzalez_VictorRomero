@@ -42,7 +42,7 @@ std::vector<Vector2D> Greedy_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D
 				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode()->GetPosition(), frontierConnection->GetToNode()->GetPosition()));
 				frontier.push(std::pair<float, Vector2D>(frontierConnection->GetToNode()->GetHeuristic(), frontierConnection->GetToNode()->GetPosition()));
 
-				printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic: (%f)\n", neighbour.x, neighbour.y, frontierConnection->GetToNode()->GetHeuristic());
+				//printf_s("New Frontier Point: (%f,%f) /// New Frontier Heuristic: (%f)\n", neighbour.x, neighbour.y, frontierConnection->GetToNode()->GetHeuristic());
 				nodesInFrontier++;
 			}
 		}

@@ -57,12 +57,31 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
-			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
-			for each (Vector2D point in pathPoints)
-			{
-				agents[0]->addPathPoint(maze->cell2pix(point));
+			for (int iter = 0; iter < 4; iter++) {
+
+				switch (iter)
+				{
+				case 0:
+					nav_Algorithm = new BFS_Alg();
+					break;
+				case 1:
+					nav_Algorithm = new Djikstra_Alg();
+					break;
+				case 2:
+					nav_Algorithm = new Greedy_Alg();
+					break;
+				case 3:
+					nav_Algorithm = new AStar_Alg();
+					break;
+				}
+
+				std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
+				/*for each (Vector2D point in pathPoints)
+				{
+					agents[0]->addPathPoint(maze->cell2pix(point));
+				}*/
+				printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 			}
-			printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_R && agents[0]->getPathSize() == 0) {

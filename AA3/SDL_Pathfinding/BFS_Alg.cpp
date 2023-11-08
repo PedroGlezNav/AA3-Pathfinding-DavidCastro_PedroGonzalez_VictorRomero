@@ -37,7 +37,7 @@ std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D go
 			if (!hasFoundIt) {
 				cameFrom.push_back(std::make_pair(frontierConnection->GetFromNode()->GetPosition(), frontierConnection->GetToNode()->GetPosition()));
 				frontier.push(neighbour);
-				printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
+				//printf_s("New Frontier Point: (%f,%f)\n", neighbour.x, neighbour.y);
 				nodesInFrontier++;
 			}
 		}
