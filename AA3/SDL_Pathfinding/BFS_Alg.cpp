@@ -1,6 +1,6 @@
 #include "BFS_Alg.h"
 
-std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph)
+std::vector<Vector2D> BFS_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph, std::vector<Vector2D> enemyPositions)
 {
 	nodesInFrontier = 0;
 

@@ -16,4 +16,6 @@ C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Path
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(50,27): warning C4018: '<': signed/unsigned mismatch
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(60,21): warning C4018: '<': signed/unsigned mismatch
 C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\Graph.h(88,11): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\SceneExercise2.cpp(154,26): warning C4018: '<': signed/unsigned mismatch
+C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\SDL_Pathfinding\SceneExercise2.cpp(159,26): warning C4018: '<': signed/unsigned mismatch
   SDL_Pathfinding.vcxproj -> C:\GitKraken\AA3-Pathfinding-DavidCastro_PedroGonzalez_VictorRomero\AA3\bin\SDL_Pathfinding.exe

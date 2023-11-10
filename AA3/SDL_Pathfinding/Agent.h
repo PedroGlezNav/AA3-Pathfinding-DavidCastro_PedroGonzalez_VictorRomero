@@ -40,6 +40,11 @@ private:
 	int sprite_w;
 	int sprite_h;
 
+	Uint8 r;
+	Uint8 g;
+	Uint8 b;
+	Uint8 a;
+
 public:
 	Agent();
 	~Agent();
@@ -53,6 +58,7 @@ public:
 	void setPosition(Vector2D position);
 	void setTarget(Vector2D target);
 	void setVelocity(Vector2D velocity);
+	void setPathCircleColor(Uint8 _r, Uint8 _g, Uint8 _b,Uint8 _a);
 	void addPathPoint(Vector2D point);
 	void setCurrentTargetIndex(int idx);
 	int getCurrentTargetIndex();

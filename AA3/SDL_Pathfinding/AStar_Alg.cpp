@@ -1,6 +1,6 @@
 #include "AStar_Alg.h"
 
-std::vector<Vector2D> AStar_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph)
+std::vector<Vector2D> AStar_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph, std::vector<Vector2D> enemyPositions)
 {
 	graph->ManhattanDistanceHeuristic(goalPos);
 

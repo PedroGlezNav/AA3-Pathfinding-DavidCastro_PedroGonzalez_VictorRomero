@@ -37,6 +37,7 @@ private:
 	Graph* graph;
 
 	Nav_Algorithm* nav_Algorithm;
+	Nav_Algorithm* enemies_Nav_Algorithm;
 		
 	void drawMaze();
 	void drawCoin();

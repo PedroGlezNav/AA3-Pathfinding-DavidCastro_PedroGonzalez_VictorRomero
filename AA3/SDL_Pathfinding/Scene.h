@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SDL.h>
 
+#define PLAYER_ENEMY_RADIUS 300
 
 class Scene
 {

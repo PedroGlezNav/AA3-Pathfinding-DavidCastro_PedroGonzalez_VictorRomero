@@ -1,8 +1,9 @@
 #include "Greedy_Alg.h"
 
-std::vector<Vector2D> Greedy_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph)
+std::vector<Vector2D> Greedy_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph, std::vector<Vector2D> enemyPositions)
 {
 	graph->ManhattanDistanceHeuristic(goalPos);
+
 
 	nodesInFrontier = 0;
 
