@@ -78,24 +78,56 @@ void SceneExercise3::update(float dtime, SDL_Event *event)
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
 
-			int moreNearCoin = 0;
-			coinPositions.push_back(agents[0]->getPosition());
-			std::vector
-			std::vector<Vector2D> toCoinPathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPositions[moreNearCoin], graph, std::vector<Vector2D>());
+			std::vector <Vector2D> tempCoinPosVec = coinPositions;
 
-			for (int iter = 1; iter < coinPositions.size(); iter++) {
-				std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPositions[iter], graph, std::vector<Vector2D>());
-				if (toCoinPathPoints.size() > pathPoints.size()) {
-					moreNearCoin = iter;
-					toCoinPathPoints = pathPoints;
+			tempCoinPosVec.push_back(maze->pix2cell(agents[0]->getPosition()));
+			int moreNearCoin = tempCoinPosVec.size() - 1;
+
+			std::vector <std::vector<Vector2D>> pathNodes;
+
+			//Recorrer monedas y pillar caminos
+			Vector2D tempCoinPos = tempCoinPosVec[moreNearCoin];
+
+			while (tempCoinPosVec.size() > 1) {
+				int minorTempPathSize = 9999;
+				int tempPathSize;
+
+				int tempMoreNearCoin = -1;
+
+				for (int i = 0; i < tempCoinPosVec.size(); i++) {
+					if (i != moreNearCoin) {
+						tempPathSize = nav_Algorithm->CalculatePathNodes(tempCoinPos, tempCoinPosVec[i], graph, std::vector<Vector2D>()).size();
+						if (tempPathSize < minorTempPathSize) {
+							minorTempPathSize = tempPathSize;
+							tempMoreNearCoin = i;
+						}
+					}
 				}
-				printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
+
+				//Quedarte con el menor y elminar el nodo salida
+
+				pathNodes.push_back(nav_Algorithm->CalculatePathNodes(tempCoinPos, tempCoinPosVec[tempMoreNearCoin], graph, std::vector<Vector2D>()));
+
+				//Repetir
+
+				Vector2D posToRemove = tempCoinPos;
+			
+				tempCoinPos = tempCoinPosVec[tempMoreNearCoin];
+
+				moreNearCoin = tempMoreNearCoin;
+
+				tempCoinPosVec.erase(std::remove(tempCoinPosVec.begin(), tempCoinPosVec.end(), posToRemove), tempCoinPosVec.end());
+				
 			}
 
-			std::priority_queue<std::pair<int, std::vector<Vector2D>>, std::vector<std::pair<int, std::vector<Vector2D>>>, std::greater<std::pair<int, std::vector<Vector2D>>>> orderedCoins;
-			orderedCoins.push(std::make_pair(toCoinPathPoints.size(), toCoinPathPoints));
-			for (int iter = 1; iter < coinPositions.size(); iter++) {
+			pathNodes.push_back(nav_Algorithm->CalculatePathNodes(tempCoinPos, tempCoinPosVec[0], graph, std::vector<Vector2D>()));
 
+			for each (std::vector<Vector2D> vector in pathNodes)
+			{
+				for each (Vector2D point in vector)
+				{
+					agents[0]->addPathPoint(maze->cell2pix(point));
+				}
 			}
 
 			
