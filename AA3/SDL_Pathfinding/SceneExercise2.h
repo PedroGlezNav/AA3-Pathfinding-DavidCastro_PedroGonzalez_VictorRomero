@@ -36,6 +36,8 @@ private:
 
 	Graph* graph;
 
+	bool canEnemiesBehaviour = false;
+
 	Nav_Algorithm* nav_Algorithm;
 	Nav_Algorithm* enemies_Nav_Algorithm;
 		

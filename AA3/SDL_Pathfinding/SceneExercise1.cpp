@@ -14,6 +14,7 @@ SceneExercise1::SceneExercise1()
 	Agent *agent = new Agent;
 	agent->loadSpriteTexture("../res/soldier.png", 4);
 	agent->setBehavior(new PathFollowing);
+	agent->setPathCircleColor(255, 255, 0, 255);
 	agent->setTarget(Vector2D(-20,-20));
 	agents.push_back(agent);
 
@@ -79,7 +80,7 @@ void SceneExercise1::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
-			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph);
+			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph, std::vector<Vector2D>());
 			for each (Vector2D point in pathPoints)
 			{
 				agents[0]->addPathPoint(maze->cell2pix(point));

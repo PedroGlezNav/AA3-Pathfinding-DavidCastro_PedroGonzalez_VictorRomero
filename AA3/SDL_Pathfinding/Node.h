@@ -4,6 +4,7 @@
 #include <queue>
 #include <map>
 #include <cmath>
+#include "Defines.h"
 
 class Node {
 private:

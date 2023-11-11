@@ -1,8 +1,7 @@
 #pragma once
 #include <iostream>
 #include <SDL.h>
-
-#define PLAYER_ENEMY_RADIUS 300
+#include "Defines.h"
 
 class Scene
 {
@@ -13,4 +12,3 @@ public:
 	virtual void draw() = 0;
 	virtual const char* getTitle() { return ""; };
 };
-

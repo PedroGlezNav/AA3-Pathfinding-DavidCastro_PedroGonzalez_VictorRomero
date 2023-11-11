@@ -28,16 +28,20 @@ SceneExercise2::SceneExercise2()
 		agents.push_back(enemy);
 	}
 
-	Vector2D rand_cell(-1, -1);
-
 	// set agent position coords to the center of a random cell
-	for each (Agent* agent in agents)
+	Vector2D rand_cell(-1, -1);
+	while (!maze->isValidCell(rand_cell)) {
+		rand_cell = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
+	}
+	agents[0]->setPosition(maze->cell2pix(rand_cell));
+
+	for (int iter = 1; iter < agents.size(); iter++)
 	{
 		rand_cell = Vector2D(-1, -1);
-		while (!maze->isValidCell(rand_cell)) {
+		while (!maze->isValidCell(rand_cell) || agents[0]->getPosition() == agents[iter]->getPosition()) {
 			rand_cell = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
 		}
-		agent->setPosition(maze->cell2pix(rand_cell));
+		agents[iter]->setPosition(maze->cell2pix(rand_cell));
 	}
 	initialAgent0Pos = agents[0]->getPosition();
 
@@ -47,10 +51,10 @@ SceneExercise2::SceneExercise2()
 		coinPosition = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
 
 	graph = new Graph(maze->GetTerrain());
-	nav_Algorithm = new BFS_Alg();
+	nav_Algorithm = new Greedy_Alg();
 	printf_s("Breadth-First Search--------------------------------------\n\n");
 
-	enemies_Nav_Algorithm = new Greedy_Alg();
+	enemies_Nav_Algorithm = new BFS_Alg();
 }
 
 SceneExercise2::~SceneExercise2()
@@ -98,6 +102,8 @@ void SceneExercise2::update(float dtime, SDL_Event *event)
 		}
 
 		if (event->key.keysym.scancode == SDL_SCANCODE_S && agents[0]->getPathSize() == 0) {
+
+			canEnemiesBehaviour = true;
 			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph, std::vector<Vector2D>());
 			for each (Vector2D point in pathPoints)
 			{
@@ -151,14 +157,9 @@ void SceneExercise2::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	for (int iter = 0; iter < agents.size(); iter++)
-	{
-		agents[iter]->update(dtime, event);
-	}
-
 	for (int iter = 1; iter < agents.size(); iter++)
 	{
-		if (agents[iter]->getPathSize() == 0) {
+		if (agents[iter]->getPathSize() == 0 && canEnemiesBehaviour) {
 			Vector2D rand_cell = Vector2D(-1, -1);
 			while (!maze->isValidCell(rand_cell)) {
 				rand_cell = Vector2D((float)(rand() % maze->getNumCellX()), (float)(rand() % maze->getNumCellY()));
@@ -170,22 +171,28 @@ void SceneExercise2::update(float dtime, SDL_Event *event)
 			}
 		}
 
-		if (Vector2D::Distance(agents[iter]->getPosition(), agents[0]->getPosition()) < PLAYER_ENEMY_RADIUS) {
-			printf_s("Recalculando Rutaaa\n\n");
+		float dist = Vector2D::Distance(maze->pix2cell(agents[iter]->getPosition()), maze->pix2cell(agents[0]->getPosition()));
+		if (dist < PLAYER_ENEMY_RADIUS && canEnemiesBehaviour && agents[0]->getPathSize() != 0) {
+			printf_s("Realculating route\n\n");
 			agents[0]->clearPath();
 
 			std::vector<Vector2D> enemyPositions;
 			for (int iter2 = 1; iter2 < agents.size(); iter2++) {
-				enemyPositions.push_back(agents[iter2]->getPosition());
+				enemyPositions.push_back(maze->pix2cell(agents[iter2]->getPosition()));
 			}
 
-			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph, );
+			std::vector<Vector2D> pathPoints = nav_Algorithm->CalculatePathNodes(maze->pix2cell(agents[0]->getPosition()), coinPosition, graph, enemyPositions);
 			for each (Vector2D point in pathPoints)
 			{
 				agents[0]->addPathPoint(maze->cell2pix(point));
 			}
 			printf_s("Number of nodes in frontier: %d ----------------------------------\n\n", nav_Algorithm->GetNodesInFrontier());
 		}
+	}
+
+	for (int iter = 0; iter < agents.size(); iter++)
+	{
+		agents[iter]->update(dtime, event);
 	}
 }
 

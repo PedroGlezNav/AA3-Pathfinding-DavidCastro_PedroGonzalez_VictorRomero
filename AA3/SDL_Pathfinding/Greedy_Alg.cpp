@@ -2,8 +2,11 @@
 
 std::vector<Vector2D> Greedy_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D goalPos, Graph* graph, std::vector<Vector2D> enemyPositions)
 {
-	graph->ManhattanDistanceHeuristic(goalPos);
-
+	Graph tempGraph = *graph;
+	tempGraph.ManhattanDistanceHeuristic(goalPos);
+	if (enemyPositions.size() != 0) {
+		tempGraph.AddEnemyHeuristic(enemyPositions);
+	}
 
 	nodesInFrontier = 0;
 
@@ -19,7 +22,7 @@ std::vector<Vector2D> Greedy_Alg::CalculatePathNodes(Vector2D agentPos, Vector2D
 			return CalculatePath(agentPos, goalPos, cameFrom);
 		}
 
-		std::vector<Connection*> connections= graph->GetConnectionsFromNode(frontier.top().second);
+		std::vector<Connection*> connections= tempGraph.GetConnectionsFromNode(frontier.top().second);
 		frontier.pop();
 		Vector2D neighbour;
 

@@ -66,6 +66,28 @@ public:
 		}
 	}
 
+	void AddEnemyHeuristic(std::vector<Vector2D> enemyPositions) {
+
+		std::vector<Connection*> tempConnections = connections;
+
+		for (int i = 0; i < enemyPositions.size(); i++) {
+			for (int j = 0; j < connections.size(); j++) {
+
+				float fromNodeDist = Vector2D::Distance(connections[j]->GetFromNode()->GetPosition(), enemyPositions[i]);
+				if (fromNodeDist < PLAYER_ENEMY_RADIUS) {
+					float newHeuristic = connections[j]->GetFromNode()->GetHeuristic() + (ENEMY_HEURISTIC_ADDITIVE - fromNodeDist);
+					connections[j]->GetFromNode()->SetHeuristic(newHeuristic);
+				}
+
+				float toNodeDist = Vector2D::Distance(connections[j]->GetToNode()->GetPosition(), enemyPositions[i]);
+				if (toNodeDist < PLAYER_ENEMY_RADIUS) {
+					float newHeuristic = connections[j]->GetToNode()->GetHeuristic() + (ENEMY_HEURISTIC_ADDITIVE - toNodeDist);
+					connections[j]->GetToNode()->SetHeuristic(newHeuristic);
+				}
+			}
+		}
+	}
+
 	float randomFloat()
 	{
 		return (float)(rand()) / (float)(RAND_MAX);
